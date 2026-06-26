@@ -72,6 +72,8 @@
 
 <h2>Products</h2>
 <a href="${pageContext.request.contextPath}/products?action=new">Add Product</a>
+<a href="${pageContext.request.contextPath}/cart">Cart</a>
+|
 <table border="1" cellpadding="5">
     <tr>
         <th>ID</th>
@@ -95,6 +97,8 @@
             <a href="${pageContext.request.contextPath}/products?action=edit&id=<%=p.getId()%>">Edit</a> |
             <a href="${pageContext.request.contextPath}/products?action=delete&id=<%=p.getId()%>"
                onclick="return confirm('Delete <%=p.getName()%>?');">Delete</a>
+            <a href="<%= request.getContextPath() %>/cart?action=add&id=<%= p.getId() %>">Add to Cart</a>
+
         </td>
     </tr>
     <%
