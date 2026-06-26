@@ -21,4 +21,27 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>lk.jiat</groupId>
+                <artifactId>techmart-core</artifactId>
+                <version>1.0</version>
+                <type>jar</type>
+            </dependency>
+            <dependency>
+                <groupId>lk.jiat</groupId>
+                <artifactId>techmart-ejb</artifactId>
+                <version>1.0</version>
+                <type>ejb</type>
+            </dependency>
+            <dependency>
+                <groupId>lk.jiat</groupId>
+                <artifactId>techmart-web</artifactId>
+                <version>1.0</version>
+                <type>war</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
 </project>

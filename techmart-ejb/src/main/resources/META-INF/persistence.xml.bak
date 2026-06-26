@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence" version="3.0">
+    <persistence-unit name="techmartPU" transaction-type="JTA">
+        <jta-data-source>jdbc/techmartDS</jta-data-source>
+        <class>lk.jiat.techmart.core.model.Product</class>
+        <properties>
+            <property name="eclipseLink.target-database" value="org.eclipse.persistence.platform.database.H2Platform"/>
+            <property name="eclipseLink.ddl-generation" value="drop-and-create-tables"/>
+            <property name="eclipseLink.ddl-generation.output-mode" value="database"/>
+            <property name="eclipseLink.logging.level" value="INFO"/>
+        </properties>
+    </persistence-unit>
+</persistence>

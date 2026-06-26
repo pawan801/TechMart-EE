@@ -1,0 +1,68 @@
+===============================================
+TechMart-EE DEPLOYMENT CHECKLIST
+===============================================
+
+ISSUES FIXED:
+✅ JNDI Datasource Mismatch
+   - File: techmart-ejb/src/main/resources/META-INF/glassfish-resources.xml
+   - Changed: jdbc/TechMartPool → jdbc/techmartDS
+   - Removed extra space in pool name
+
+✅ Build Configuration 
+   - Added maven-war-plugin to techmart-web/pom.xml
+   - Added maven-ejb-plugin to techmart-ejb/pom.xml
+
+===============================================
+DEPLOYMENT STEPS
+===============================================
+
+1. REBUILD THE PROJECT:
+   Run: BUILD_AND_DEPLOY.bat
+   Or:  mvn clean install
+
+2. CHECK BUILD OUTPUT:
+   Should create: techmart-ear/target/techmart-ear.ear
+
+3. DEPLOY TO PAYARA:
+   Option A: Use DEPLOY_TO_PAYARA.bat
+   Option B: Use Payara Admin Console (GUI)
+             - Go to http://localhost:4848
+             - Applications → Deploy
+             - Select: techmart-ear/target/techmart-ear.ear
+   Option C: Manual asadmin command
+             - asadmin deploy techmart-ear/target/techmart-ear.ear
+
+4. VERIFY IN BROWSER:
+   Open: http://localhost:8080/techmart-ear/products
+
+===============================================
+KEY CONFIGURATION
+===============================================
+
+Datasource Name:  jdbc/techmartDS
+Database Name:    techmart_db
+DB User:          root
+DB Password:      22Pawan#@
+MySQL Port:       3306
+Payara Admin:     http://localhost:4848
+App URL:          http://localhost:8080/techmart-ear
+
+===============================================
+IF DEPLOYMENT FAILS
+===============================================
+
+Check Payara Logs:
+C:\Program Files\Payara\payara6\glassfish\domains\domain1\logs\server.log
+
+Verify Datasource in Admin Console:
+1. Resources → JDBC → Connection Pools
+   Should see: TechMartPool
+2. Resources → JDBC → JDBC Resources  
+   Should see: jdbc/techmartDS
+
+Verify Database:
+1. MySQL running on localhost:3306
+2. Database "techmart_db" exists
+3. User "root" with password "22Pawan#@" can connect
+
+===============================================

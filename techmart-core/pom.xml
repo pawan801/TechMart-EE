@@ -10,6 +10,7 @@
     </parent>
 
     <artifactId>techmart-core</artifactId>
+    <name>techmart-core</name>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
