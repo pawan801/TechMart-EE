@@ -54,7 +54,7 @@
 <div class="total">Grand Total: Rs. <%= total %></div>
 <div style="text-align:center; margin-top:20px;">
     <a href="${pageContext.request.contextPath}/products">Continue Shopping</a> |
-    <a href="#">Checkout</a> <!-- Checkout පස්සේ හදමු -->
+    <a href="${pageContext.request.contextPath}/checkout">Checkout</a>
 </div>
 <%
     }
