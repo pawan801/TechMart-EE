@@ -17,9 +17,9 @@ import java.util.List;
 @WebServlet("/checkout")
 public class CheckoutServlet extends HttpServlet {
 
-    @EJB(lookup = "java:global/TechMart-EE/techmart-ejb/OrderServiceBean!lk.jiat.techmart.core.service.OrderService")
-    @EJB(mappedName = "OrderServiceBean")
-    private OrderService orderService;
+//    @EJB(lookup = "java:global/TechMart-EE/techmart-ejb/OrderServiceBean!lk.jiat.techmart.core.service.OrderService")
+//    @EJB(mappedName = "OrderServiceBean")
+//    private OrderService orderService;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -60,9 +60,9 @@ public class CheckoutServlet extends HttpServlet {
             return;
         }
 
-        Order savedOrder = orderService.placeOrder(cart, name, email);
+//        Order savedOrder = orderService.placeOrder(cart, name, email);
         session.removeAttribute("cart");
-        resp.sendRedirect(req.getContextPath() + "/order-success.jsp?orderId=" + savedOrder.getId());
+//        resp.sendRedirect(req.getContextPath() + "/order-success.jsp?orderId=" + savedOrder.getId());
 
     }
 
