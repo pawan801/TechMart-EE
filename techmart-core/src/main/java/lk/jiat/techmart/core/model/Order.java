@@ -13,15 +13,24 @@ public class Order {
     private Long id;
     private String customerName;
     private String customerEmail;
-    private LocalDateTime orderDate;
+    private String orderDate;
     private BigDecimal totalAmount;
     private String status;
     private List<OrderItem> items;
 
+    public void setOrderDate(String orderDate) {
+        this.orderDate = orderDate;
+    }
+
+
+    public String getOrderDate() {
+        return orderDate;
+    }
+
     public Order(){
 
         this.id = COUNTER.getAndIncrement();
-        this.orderDate = LocalDateTime.now();
+        this.orderDate = orderDate;
         this.status = "PLACED";
         this.items = new ArrayList<>();
         this.totalAmount = BigDecimal.ZERO;
@@ -35,6 +44,10 @@ public class Order {
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getCustomerName() {
@@ -53,13 +66,9 @@ public class Order {
         this.customerEmail = customerEmail;
     }
 
-    public LocalDateTime getOrderDate() {
-        return orderDate;
-    }
 
-    public void setOrderDate(LocalDateTime orderDate) {
-        this.orderDate = orderDate;
-    }
+
+
 
     public BigDecimal getTotalAmount() {
         return totalAmount;
