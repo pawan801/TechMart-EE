@@ -21,13 +21,9 @@ public class MyOrdersServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         List<Order> orders = getDummyOrders();
-
         req.setAttribute("orders", orders);
         req.getRequestDispatcher("WEB-INF/Views/orders.jsp").forward(req,resp);
-
-
     }
-
     private List<Order> getDummyOrders(){
 
         List<Order> dummyList = new ArrayList<>();

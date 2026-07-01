@@ -13,19 +13,15 @@ import java.util.List;
 
 @Stateless(name = "OrderServiceBean")
 public class OrderServiceBean implements OrderService {
-
     private final List<Order> orderDb = Collections.synchronizedList(new ArrayList<>());
-
     @Override
     public Order placeOrder(List<CartItem> cart, String customerName, String customerEmail) {
         if (cart == null || cart.isEmpty()) {
             throw new IllegalArgumentException("Cart is empty");
         }
-
         Order order = new Order();
         order.setCustomerName(customerName);
         order.setCustomerEmail(customerEmail);
-
         BigDecimal total = BigDecimal.ZERO;
 
         for (CartItem cartItem : cart) {
@@ -44,7 +40,6 @@ public class OrderServiceBean implements OrderService {
         System.out.println(">> FAKE ORDER SAVED : ID =" + order.getId() + ", Total=RS " + order.getTotalAmount() + ", Customer=" + customerName);
         return order;
     }
-
     @Override
     public List<Order> findAll() {
         return new ArrayList<>(orderDb);
